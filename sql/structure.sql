@@ -1,0 +1,39 @@
+BEGIN TRANSACTION;
+
+DROP TABLE IF EXISTS "Recipe_Ingredient";
+DROP TABLE IF EXISTS "Ingredient";
+DROP TABLE IF EXISTS "Recipe";
+
+CREATE TABLE "Recipe" (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(32) CHECK(name <> "") NOT NULL UNIQUE,
+  description VARCHAR(64) CHECK(description <> "") NOT NULL,
+  isInitial BOOLEAN DEFAULT FALSE,
+  createTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  updateTime TIMESTAMP DEFAULT NULL
+);
+
+CREATE TABLE "Ingredient" (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(32) CHECK(name <> "") NOT NULL UNIQUE,
+  unit CHAR(1) NOT NULL,
+  isInitial BOOLEAN DEFAULT FALSE,
+  createTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  updateTime TIMESTAMP DEFAULT NULL
+);
+
+CREATE TABLE "Recipe_Ingredient" (
+  recipe_id INT,
+  ingredient_id INT,
+  step INT CHECK(step >= 1) NOT NULL,
+  amount FLOAT(2) NOT NULL,
+  instructions VARCHAR(32),
+  isInitial BOOLEAN DEFAULT FALSE,
+  createTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  updateTime TIMESTAMP DEFAULT NULL,
+  PRIMARY KEY ("recipe_id", "ingredient_id"),
+  FOREIGN KEY ("recipe_id") REFERENCES "Recipe"("id"),
+  FOREIGN KEY ("ingredient_id") REFERENCES "Ingredient"("id")
+);
+
+COMMIT;

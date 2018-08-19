@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:fragment="head">
+
+        <title>Milkshakes!</title>
+        <meta charset="utf-8" />
+        <script src="/scripts.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="/desktop.css" th:href="@{~/desktop.css}" type="text/css" />
+
+        <!-- SECTION: Google -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114898488-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+            dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-114898488-1');
+        </script>
+
+        <script src="https://www.google.com/recaptcha/api.js" type="text/javascript"></script>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster" />
+        <!-- ENDSECTION -->
+
+        <!-- SECTION: Keen IO -->
+        <script type="text/javascript">
+            function createKeenWebAutoCollector() {
+            window.keenWebAutoCollector = window.KeenWebAutoCollector.create({projectId: '5aa2f758c9e77c00010a969b', writeKey: 'E3E534829969FBA11B71BB933B5E87F6A2BCB345C95F732C25B2A4DE4B48C5E330F34455F74535BA22754AAF58662778847BDD78EE03BB8E7F7D03B066072EB403C08C55FCB9E50F5D9634817D8264583E04F5C09001F4429AE9B2927CF89F09', onloadCallbacks: window.keenWebAutoCollector.onloadCallbacks}), window.keenWebAutoCollector.loaded();
+            }
+            function initKeenWebAutoCollector() {
+            window.keenWebAutoCollector.domReady() ? window.createKeenWebAutoCollector() : document.addEventListener("readystatechange", function () {
+            window.keenWebAutoCollector.domReady() && window.createKeenWebAutoCollector();
+            });
+            }
+            window.keenWebAutoCollector = {
+            onloadCallbacks: [], onload: function (a) {
+            this.onloadCallbacks.push(a);
+            }, domReady: function () {
+            return["ready", "complete"].indexOf(document.readyState) > -1;
+            }
+            };
+        </script>
+
+        <script async type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-web-autocollector-1.0.8.min.js" onload="initKeenWebAutoCollector()"></script>
+        <!-- ENDSECTION -->
+
+        <!-- SECTION: HighlightJS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" />
+        <!-- ENDSECTION -->
+
+    </head>
+
+    <body>
+
+        <div th:fragment="header">
+            <div id="summit">
+                <div id="mid">
+                    <div id="top">
+                        <div id="left">
+                            <h1>Milkshakes!</h1>
+                        </div>
+                        <div id="right"><a href="/" class="navi recipes">Recipes</a> <span class="divider">&bull;</span> <a href="/ingredients" class="navi ingredients">Ingredients</a> <span class="divider">&bull;</span> <a href="/database" class="navi database">Database Information</a></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div th:fragment="disclaimer">
+            <!-- Only when a cookie that claims "disclaimer=true" exists is this not shown. -->
+            <div th:if="${disclaimer != 'true'}" id="disclaimer">
+                <strong>Disclaimer:</strong>
+                This is a live student project. Anyone (including bots) can test it out and leave their own entries behind. If you see something unusual or inappropriate, you may reset the database. Alongside the reset function, details about the database can be found in "Database Information". Thank you.
+                <br /><br />
+                <a href="#" id="processDisclaimer" onclick="processDisclaimer();">I understand (click here to hide this message)</a>
+            </div>
+        </div>
+
+    </body>
+</html>

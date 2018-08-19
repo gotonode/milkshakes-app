@@ -1,0 +1,65 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-transitional-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="fragments/header :: head"><title>milkshakes-app</title></head>
+    <body>
+
+        <div id="recipes">
+            <div th:replace="fragments/header :: header"></div>
+        </div>
+
+        <div id="content">
+
+            <div th:replace="fragments/header :: disclaimer"></div>
+
+            <h2>Recipes</h2>
+
+            <p>Welcome! Here you can view and delete all the milkshakes (recipes). Click on one to begin.</p>
+
+            <table id="data">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+
+                <tr th:each="recipe : ${recipes}" class="entry">
+                    <td class="half"><a th:href="@{'~/view/' + ${recipe.id}}"><span th:text="${recipe.name}">recipe.name</span></a></td>
+                    <td class="flexibleWidth" th:text="${recipe.description}">recipe.description</td>
+                    <td class="deleteColumn"><a href="/delete" th:onclick="@{'deleteConfirmRecipe(' + ${recipe.id} + ',\'' + ${recipe.name} + '\'); return false;'}" class="delete">(delete)</a></td>
+                </tr>
+            </table>
+
+            <div id="add">
+
+                <p>Create a new milkshake recipe</p>
+
+                <form method="POST" action="/add/recipe" id="form" onsubmit="return validateForm();">
+                    <table>
+                        <tr>
+                            <td class="firstColumn">Name:</td>
+                            <td class="middleColumn"><input type="text" name="name" maxlength="32" value="" required="required" /></td>
+                            <td class="lastColumn">Must be between 1 and 32 characters and unique</td>
+                        </tr>
+                        <tr>
+                            <td class="firstColumn">Description:</td>
+                            <td class="middleColumn"><input type="text" name="description" maxlength="64" value="" required="required" /></td>
+                            <td class="lastColumn">Must be between 1 and 64 characters</td>
+                        </tr>
+                        <tr>
+                            <td class="firstColumn"></td>
+                            <td class="middleColumn"><input type="submit" value="Add Recipe" /></td>
+                            <td class="lastColumn">The recipe is created and you'll be redirected to it</td>
+                        </tr>
+                    </table>
+
+                </form>
+
+            </div>
+
+            <div th:replace="fragments/footer :: footer"></div>
+
+        </div>
+
+    </body>
+</html>

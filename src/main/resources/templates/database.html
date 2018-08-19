@@ -1,0 +1,52 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-transitional-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="fragments/header :: head"><title>milkshakes-app</title></head>
+    <body>
+
+        <div id="database">
+            <div th:replace="fragments/header :: header"></div>
+        </div>
+
+        <div id="content">
+
+            <div th:replace="fragments/header :: disclaimer"></div>
+
+            <h2>Database Information</h2>
+
+            <p>This page contains information about the database. You may scroll down to find the database reset button.</p>
+
+            <h3>Database Schema</h3>
+
+            <p>The database looks like this (modeled as <a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language" target="_blank">UML</a> and displayed as <a href="https://en.wikipedia.org/wiki/SVG" target="_blank">SVG</a>):</p>
+
+            <img src="schema.svg" alt="Database Schema (SVG graphics)" id="schema" />
+
+            <p>The timestamps are not visible from this app. They are for statistical purposes.</p>
+
+            <h3>Database Reset</h3>
+
+            <p><strong>Warning!</strong> This will reset the database to the initial values. Please confirm that you're not a malicious bot.</p>
+
+            <form method="POST" action="/reset">
+                <div class="g-recaptcha" data-sitekey="6LfITEgUAAAAAPP1XU2JcTQEjxq5cQxhP_Il8v2x"></div>
+                <input type="submit" value="Reset Database" id="resetButton"/>
+            </form>
+
+            <p>Once you confirm, the database will be reset and you'll be redirected to the main page.</p>
+
+            <p>The following <a href="https://en.wikipedia.org/wiki/SQL" target="_blank">SQL</a> <a href="https://en.wikipedia.org/wiki/Database_transaction" target="_blank">transaction</a> will be executed:</p>
+
+            <pre><code th:utext="${sql}" class="sql">sql</code></pre>
+
+            <!-- SECTION: HighlightJS -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+            <script>hljs.initHighlightingOnLoad();</script>
+            <!-- ENDSECTION -->
+
+            <div th:replace="fragments/footer :: footer"></div>
+
+        </div>
+
+    </body>
+</html>

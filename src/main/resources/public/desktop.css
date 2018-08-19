@@ -1,0 +1,244 @@
+
+/* ID tags here are overqualified, but that's just a reminder of their type. */
+
+.g-recaptcha {
+    /* These might change so watch out for Google updating stuff! */
+    /* They are added here so that the page loads in the right size from the get-go. */
+    width: 304px;
+    height: 78px;
+}
+
+html {
+    /* We set the height to 100% so it goes from top to bottom. */
+    min-height: 100%;
+    background: linear-gradient(to bottom, aliceblue 0%, white 100%) fixed;
+}
+
+body {
+    /* So that the page won't "jitter" around when the scrollbar is visible or not. */
+    overflow: scroll;
+    margin: 0;
+}
+
+p, span, div, h1, h2, h3 {
+    cursor: default;
+}
+
+a, a span {
+    cursor: pointer;
+}
+
+pre, code {
+    cursor: text;
+}
+
+h1 {
+    font-family: "Lobster", cursive;
+    letter-spacing: 5px;
+    font-size: 25px;
+}
+
+h2 {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: medium;
+    letter-spacing: 1px;
+    display: inline-block;
+    border-bottom: 1px solid gray;
+    width: 100%;
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+}
+
+a, a:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a.active {
+    font-weight: bold;
+}
+
+a.delete {
+    color: maroon;
+    float: right;
+}
+
+a.navi {
+    letter-spacing: 2px;
+}
+
+a#back {
+    margin-bottom: 15px;
+}
+
+span.check {
+    color: green;
+}
+
+#recipes .recipes, #ingredients .ingredients, #database .database  {
+    /* Yet another super cool CSS hack here! */
+    color: navy;
+}
+
+table#data {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: white;
+    padding: 10px;
+    border: 2px solid gray;
+}
+
+th {
+    padding-bottom: 5px;
+}
+
+table#data tr.entry:hover {
+    background-color: #DDEEFF;
+}
+
+th {
+    text-align: left;
+    font-weight: bold;
+}
+
+td {
+    padding-bottom: 5px;
+    vertical-align: middle;
+}
+
+pre {
+    padding: 20px;
+    border: 2px solid gray;
+    overflow: auto;
+    word-break: keep-all;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+}
+
+div#disclaimer {
+    width: 100%;
+    border: 2px dotted gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    background: linear-gradient(#FFEEEE, #FFFFFF);
+    box-sizing: border-box;
+}
+
+span.divider {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+span#guide {
+    display: inline;
+    padding-top: 3px;
+    margin-bottom: 30px;
+}
+
+span#recipeName {
+    font-weight: bold;
+}
+
+span#recipeDescription {
+    font-style: italic;
+}
+
+div#add p {
+    font-weight: bold;
+}
+
+td.firstColumn {
+    width: 130px;
+}
+
+td.middleColumn {
+    width: 175px;
+}
+
+td.lastColumn {
+    padding-left: 15px;
+    color: slategrey;
+}
+
+select, input[type="text"], input[type="number"], input[type="submit"] {
+    box-sizing: border-box;
+    margin: auto;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid slategray;
+    padding: 3px;
+}
+
+input[type="submit"] {
+    background-color: ghostwhite;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(to right, ghostwhite, white);
+}
+
+#resetButton {
+    margin-top: 15px;
+    width: 150px;
+}
+
+div#content, div#mid {
+    width: 950px;
+    margin: auto;
+    left: 50%;
+    top: 0;
+}
+
+div#content {
+    height: 100%;
+}
+
+div#top {
+    width: 100%;
+    /* This is a CSS trick to fit two inline-block elements next
+    to each other when there's whitespace in between them. */
+    font-size: 0;
+}
+
+div#summit {
+    background-color: mintcream;
+    border-bottom: 2px solid gray;
+    margin-bottom: 20px;
+}
+
+div#left, div#right {
+    width: 50%;
+    display: inline-block;
+    /* And here we restore our font size back to normal. */
+    font-size: medium;
+}
+
+div#left {
+    text-align: left;
+}
+
+div#right {
+    text-align: right;
+}
+
+div#footer {
+    font-size: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: monospace;
+}
+
+hr {
+    margin-top: 15px;
+}

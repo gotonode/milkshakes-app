@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>TEMPLATE:YOU_SHOULD_NOT_SEE_THIS</title>
+    </head>
+
+    <body>
+
+        <div th:fragment="footer" id="footer">
+
+            <br />
+            <hr />
+
+            <div id="left">
+                <p>Milkshakes! (milkshakes-app build version <span th:text="${version}">version</span>)</p>
+            </div>
+            <div id="right">
+                <span class="check">&#x2713;</span> <a href="https://validator.w3.org/check?uri=referer" target="_blank" class="valid">Valid HTML</a> | <span class="check">&#x2713;</span> <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank" class="valid">Valid CSS</a> | <a href="https://github.com/gotonode/milkshakes-app" target="_blank" class="GitHub">View on GitHub</a> | <a href="" id="email" onclick="fillEmail();">Contact me</a>
+            </div>
+
+        </div>
+
+    </body>
+</html>

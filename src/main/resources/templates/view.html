@@ -1,0 +1,104 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-transitional-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="fragments/header :: head"><title>milkshakes-app</title></head>
+    <body>
+
+        <div id="recipes">
+            <div th:replace="fragments/header :: header"></div>
+        </div>
+
+        <div id="content">
+
+            <div th:replace="fragments/header :: disclaimer"></div>
+
+            <h2>Details for recipe</h2>
+
+            <p>Here's the milkshake you ordered! You can view and modify it here.</p>
+
+            <table>
+                <tr>
+                    <td class="firstColumn">Name:</td>
+                    <td><span id="recipeName" th:text="${recipe.name}">recipe.name</span></td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Description:</td>
+                    <td><span id="recipeDescription" th:text="${recipe.description}">recipe.description</span></td>
+                </tr>
+            </table>
+
+            <table id="data" th:if="${!steps.empty}">
+                <tr>
+                    <th>Step</th>
+                    <th>Ingredient</th>
+                    <th>Amount</th>
+                    <th>Instructions</th>
+                    <th></th>
+                </tr>
+
+                <tr th:each="step : ${steps}" class="entry">
+                    <td class="veryNarrow" th:text="${step.step}">step.step</td>
+                    <td class="fixedWidth" th:text="${step.name}">step.name</td>
+                    <td class="fixedWidth" th:text="${step.amount} + ' ' + ${step.unitString}">step.amount</td>
+                    <td class="flexibleWidth" th:text="${step.instructions}">step.instructions</td>
+                    <td class="deleteColumn"><a href="/delete" th:onclick="@{'deleteConfirmIngredientFromRecipe(' + ${recipe.id} + ',' + ${step.ingredientId} + ',\'' + ${step.name} + '\'); return false;'}" class="delete">(delete)</a></td>
+                </tr>
+            </table>
+
+            <div th:if="${steps.empty}">
+                <p>This recipe doesn't have any ingredients in it. Add some below?</p>
+            </div>
+
+            <a href="/" id="back">&laquo; Back to recipes (any changes are already saved)</a>
+
+            <div id="add" th:if="${!ingredients.empty}">
+
+                <p>Add ingredients to this recipe</p>
+
+                <form method="POST" action="/add/ingredientToRecipe">
+
+                    <input type="hidden" name="recipe" th:value="${recipe.id}" />
+
+                    <table>
+                        <tr>
+                            <td class="firstColumn">Type:</td>
+                            <td class="middleColumn">
+                                <select name="ingredient" required="required">
+                                    <option th:each="ingredient : ${ingredients}" th:text="${ingredient.name}" th:value="${ingredient.id}">value</option>
+                                </select>
+                            </td>
+                            <td class="lastColumn">Must be unique (only add the same ingredient once)</td>
+                        </tr>
+                        <tr>
+                            <td class="firstColumn">Step:</td>
+                            <td class="middleColumn"><input type="number" name="step" min="1" step="1" th:value="${nextStep}" required="required" /></td>
+                            <td class="lastColumn">Must be a positive integer</td>
+                        </tr>
+                        <tr>
+                            <td class="firstColumn">Amount:</td>
+                            <td class="middleColumn"><input type="number" name="amount" min="0.01" step="0.01" value="1.0" required="required" /></td>
+                            <td class="lastColumn">Must be a decimal value (use a dot as the separator)</td>
+                        </tr>
+                        <tr>
+                            <td class="firstColumn">Instructions:</td>
+                            <td class="middleColumn"><input type="text" name="instructions" maxlength="64" value="" /></td>
+                            <td class="lastColumn">Optional, with a maximum of 64 characters</td>
+                        </tr>
+                        <tr>
+                            <td class="firstColumn"></td>
+                            <td class="middleColumn"><input type="submit" value="Add Ingredient to Recipe" /></td>
+                            <td class="lastColumn">This ingredient will be added instantly</td>
+                        </tr>
+                    </table>
+                </form>
+
+            </div>
+
+            <div id="add" th:if="${ingredients.empty}"><p>You've already added all the ingredients into this recipe. Wow, what a milkshake!</p></div>
+
+            <div th:replace="fragments/footer :: footer"></div>
+
+        </div>
+
+    </body>
+</html>

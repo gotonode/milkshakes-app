@@ -1,0 +1,71 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-transitional-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="fragments/header :: head"><title>milkshakes-app</title></head>
+    <body>
+
+        <div id="ingredients">
+            <div th:replace="fragments/header :: header"></div>
+        </div>
+
+        <div id="content">
+
+            <div th:replace="fragments/header :: disclaimer"></div>
+
+            <h2>Ingredients</h2>
+
+            <p>Here are all the ingredients in the database. You can add your own or remove some.</p>
+
+            <table id="data">
+                <tr>
+                    <th>Name</th>
+                    <th>Unit</th>
+                    <th>Used by <em>n</em> recipes</th>
+                    <th></th>
+                </tr>
+
+                <tr th:each="ingredient : ${ingredientsWithCount}" class="entry">
+                    <td class="third" th:text="${ingredient.name}">ingredient.name</td>
+                    <td class="third" th:text="${ingredient.unitString}">ingredient.unitString</td>
+                    <td class="third" th:text="${ingredient.count}">ingredient.count</td>
+                    <td class="deleteColumn"><a href="/deleteIngredient" th:onclick="@{'deleteConfirmIngredient(' + ${ingredient.id} + ',\'' + ${ingredient.name} + '\'); return false;'}" class="delete">(delete)</a></td>
+                </tr>
+            </table>
+
+            <div id="add">
+
+                <p>Add new ingredients here</p>
+
+                <form method="POST" action="/add/ingredient" id="form" onsubmit="return validateForm();">
+                    <table>
+                        <tr>
+                            <td class="firstColumn">Name:</td>
+                            <td class="middleColumn"><input type="text" name="name" id="name" value="" maxlength="32" required="required" /></td>
+                            <td class="lastColumn">Must be between 1 and 32 characters and unique</td>
+                        </tr>
+                        <tr>
+                            <td class="firstColumn">Unit:</td>
+                            <td class="middleColumn">
+                                <select name="unit" required="required">
+                                    <option th:each="unit : ${units}" th:text="${unit.value}" th:value="${unit.key}">value</option>
+                                </select>
+                            </td>
+                            <td class="lastColumn">Choose the most appropriate one</td>
+                        </tr>
+                        <tr>
+                            <td class="firstColumn"></td>
+                            <td class="middleColumn"><input type="submit" value="Add Ingredient" /></td>
+                            <td class="lastColumn">Changes are saved instantly & automatically</td>
+                        </tr>
+                    </table>
+
+                </form>
+
+            </div>
+
+            <div th:replace="fragments/footer :: footer"></div>
+
+        </div>
+
+    </body>
+</html>
