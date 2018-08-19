@@ -1,6 +1,8 @@
 # Milkshakes!
 Technical name: *milkshakes-app*
 
+![Milkshakes!](https://github.com/gotonode/milkshakes-app/blob/master/docs/images/app.png)
+
 **Notice!** When launching the app (hosted by Heroku) for the first time, it may take a few (2 < *n* < 8) seconds to launch.
 
 Live version: https://milkshakes-app.herokuapp.com/
