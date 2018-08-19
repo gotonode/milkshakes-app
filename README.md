@@ -9,28 +9,23 @@ Live version: https://milkshakes-app.herokuapp.com/
 
 This is a very simple app (application, program, software) that you can use to view and edit recipes of milkshakes. A milkshake consists of a name, description and a collection (array) of ingredients. An ingredient has a name and a type associated with it.
 
-Any and all feedback will be warmly welcome.
-
-You can reach me via email: gotonode@outlook.com
-
-Thank you in advance. :-)
 ___
 
-Languages used: Java, HTML, CSS, JavaScript, SQL, XML
+Languages used: `Java`, `HTML`, `CSS`, `JavaScript`, `SQL`, `XML`
 
-Technologies used: Spark, Thymeleaf, reCAPTCHA
+Technologies used: `Maven`, `Spark`, `Thymeleaf`, `reCAPTCHA`
 
-Databases (SQL): SQLite, PostgreSQL
+Databases: `SQLite` (locally), `PostgreSQL` (online)
 
-Services used: GitHub, Heroku
+Services used: `GitHub`, `Heroku`
 
 ___
 
-The database tables (SQL CREATE statements) are listed here.
+The database tables are listed here.
 
-For PostgreSQL, the column 'id' will be of type SERIAL.
+For PostgreSQL, the column 'id' will be of type SERIAL. SQLite uses an INTEGER.
 
-Table: Recipe
+Table: `Recipe`
 
 ```sqlite
 CREATE TABLE "Recipe" (
@@ -43,7 +38,7 @@ CREATE TABLE "Recipe" (
 );
 ```
 
-Table: Ingredient
+Table: `Ingredient`
 
 ```sqlite
 CREATE TABLE "Ingredient" (
@@ -56,7 +51,7 @@ CREATE TABLE "Ingredient" (
 );
 ```
 
-Table: Recipe_Ingredient
+Table: `Recipe_Ingredient`
 
 ```sqlite
 CREATE TABLE "Recipe_Ingredient" (
