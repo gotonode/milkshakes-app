@@ -25,28 +25,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster" />
         <!-- ENDSECTION -->
 
-        <!-- SECTION: Keen IO -->
-        <script type="text/javascript">
-            function createKeenWebAutoCollector() {
-            window.keenWebAutoCollector = window.KeenWebAutoCollector.create({projectId: '5aa2f758c9e77c00010a969b', writeKey: 'E3E534829969FBA11B71BB933B5E87F6A2BCB345C95F732C25B2A4DE4B48C5E330F34455F74535BA22754AAF58662778847BDD78EE03BB8E7F7D03B066072EB403C08C55FCB9E50F5D9634817D8264583E04F5C09001F4429AE9B2927CF89F09', onloadCallbacks: window.keenWebAutoCollector.onloadCallbacks}), window.keenWebAutoCollector.loaded();
-            }
-            function initKeenWebAutoCollector() {
-            window.keenWebAutoCollector.domReady() ? window.createKeenWebAutoCollector() : document.addEventListener("readystatechange", function () {
-            window.keenWebAutoCollector.domReady() && window.createKeenWebAutoCollector();
-            });
-            }
-            window.keenWebAutoCollector = {
-            onloadCallbacks: [], onload: function (a) {
-            this.onloadCallbacks.push(a);
-            }, domReady: function () {
-            return["ready", "complete"].indexOf(document.readyState) > -1;
-            }
-            };
-        </script>
-
-        <script async type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-web-autocollector-1.0.8.min.js" onload="initKeenWebAutoCollector()"></script>
-        <!-- ENDSECTION -->
-
         <!-- SECTION: HighlightJS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/idea.min.css" />
         <!-- ENDSECTION -->
@@ -66,7 +44,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div th:fragment="disclaimer">
