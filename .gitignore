@@ -31,3 +31,6 @@ target
 /private/
 *.cmd
 /db/
+.classpath
+.project
+/.settings/
