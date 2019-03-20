@@ -27,7 +27,7 @@ For PostgreSQL, the column 'id' will be of type SERIAL. SQLite uses an INTEGER.
 
 Table: `Recipe`
 
-```sqlite
+```sql
 CREATE TABLE "Recipe" (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(32) CHECK(name <> "") NOT NULL UNIQUE,
@@ -40,7 +40,7 @@ CREATE TABLE "Recipe" (
 
 Table: `Ingredient`
 
-```sqlite
+```sql
 CREATE TABLE "Ingredient" (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(32) CHECK(name <> "") NOT NULL UNIQUE,
@@ -53,7 +53,7 @@ CREATE TABLE "Ingredient" (
 
 Table: `Recipe_Ingredient`
 
-```sqlite
+```sql
 CREATE TABLE "Recipe_Ingredient" (
   recipe_id INT,
   ingredient_id INT,
