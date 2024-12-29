@@ -9,7 +9,7 @@ Technical name: *milkshakes-app*
 
 Live version: https://milkshakes-app.herokuapp.com/
 
-This is a very simple app (application, program, software) that you can use to view and edit recipes of milkshakes. A milkshake consists of a name, description and a collection (array) of ingredients. An ingredient has a name and a type associated with it.
+This is a very simple app that you can use to view and edit recipes of milkshakes. A milkshake consists of a name, description and a collection (array) of ingredients. An ingredient has a name and a type associated with it.
 
 ___
 
